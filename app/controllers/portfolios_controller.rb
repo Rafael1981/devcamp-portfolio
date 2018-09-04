@@ -40,6 +40,17 @@ def show
 	@portfolio_item = Portfolio.find(params[:id])
 end
 
+def destroy
+	@portfolio_item = Portfolio.find(params[:id])
+	#Destroy/delete the record
+	@portfolio_item.destroy
+
+	#Redirect back to index page
+	respond_to do |format|
+		format.html {redirect_to portfolios_url, notice: "Portfolio Item was removed."}
+	end
+end
+
 private
 	def portfolio_params
 		params.require(:portfolio).permit(:title,:subtitle,:body)
