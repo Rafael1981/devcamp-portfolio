@@ -1,5 +1,9 @@
 class Portfolio < ApplicationRecord
 	has_many :technologies
+	accepts_nested_attributes_for :technologies, 
+																reject_if: lambda { |attrs| attrs['name'].blank?}
+
+
 	include Placeholder #including the Placeholder concern to set a default image/badge
 
 	validates_presence_of :title, :body, :main_image, :thumb_image
@@ -11,7 +15,7 @@ class Portfolio < ApplicationRecord
 	def self.angular
 		where(subtitle: 'Angular')
 	end
-#using an actual scope (prefer form, as it uses less code)
+#using an actual scope (prefered form, as it uses less code)
 	scope :ruby_on_rails_port_items, -> {where(subtitle: 'Ruby on Rails')}
 
 
