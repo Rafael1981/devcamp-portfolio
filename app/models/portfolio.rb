@@ -1,5 +1,5 @@
 class Portfolio < ApplicationRecord
-
+	has_many :technologies
 	include Placeholder #including the Placeholder concern to set a default image/badge
 
 	validates_presence_of :title, :body, :main_image, :thumb_image
