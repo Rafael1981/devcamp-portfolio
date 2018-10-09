@@ -39,6 +39,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #Gem to use friendly ids
 gem 'friendly_id', '~> 5.2.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 
+#Devise gem, for authentication
+gem 'devise', '~> 4.5'
 
 
 group :development, :test do
